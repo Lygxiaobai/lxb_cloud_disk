@@ -1,20 +1,29 @@
 package models
 
+import "C"
 import (
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/redis/go-redis/v9"
 	"log"
 	"xorm.io/xorm"
 )
 
-var Engine *xorm.Engine
-
 // 初始化数据库操作对象
-func Init() *xorm.Engine {
+func Init(dataSource string) *xorm.Engine {
 	var err error
-	Engine, err = xorm.NewEngine("mysql", "root:123456@(127.0.0.1:3306)/cloud_disk?charset=utf8mb4&parseTime=True&loc=Local")
+	Engine, err := xorm.NewEngine("mysql", dataSource)
 	if err != nil {
 		log.Printf("Xorm NewEngine err:%v", err)
 		return nil
 	}
 	return Engine
+}
+
+func InitRedis(addr string) *redis.Client {
+	Rdb := redis.NewClient(&redis.Options{
+		Addr:     addr,
+		Password: "", // no password set
+		DB:       0,  // use default DB
+	})
+	return Rdb
 }

@@ -10,3 +10,10 @@ type UserClaim struct {
 }
 
 var JwtKey = "cloud-disk-key"
+var MailPassword = "ZPjMZku8J3884Q4H"
+
+// 验证码长度
+var CodeLen = 6
+
+// 过期时间 s
+var CodeExpireTime = 60

@@ -9,7 +9,6 @@ import (
 
 	"cloud_disk/core/internal/config"
 	"cloud_disk/core/internal/handler"
-	"cloud_disk/core/internal/models"
 	"cloud_disk/core/internal/svc"
 
 	"github.com/zeromicro/go-zero/core/conf"
@@ -23,7 +22,6 @@ func main() {
 
 	var c config.Config
 	conf.MustLoad(*configFile, &c)
-	models.Init()
 
 	server := rest.MustNewServer(c.RestConf)
 	defer server.Stop()
