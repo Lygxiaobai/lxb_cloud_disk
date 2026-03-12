@@ -12,7 +12,12 @@ service core-api {
 
 	@handler UserRegister
 	post /user/register (UserRegisterRequest) returns (UserRegisterResponse)
+}
 
+@server (
+	middleware: Auth
+)
+service core-api {
 	@handler FileUpload
 	post /file/upload (FileUploadRequest) returns (FileUploadResponse)
 }

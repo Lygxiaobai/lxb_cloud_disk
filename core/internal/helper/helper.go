@@ -5,6 +5,7 @@ import (
 	"context"
 	"crypto/md5"
 	"crypto/tls"
+	"errors"
 	"flag"
 	"fmt"
 	"github.com/aliyun/alibabacloud-oss-go-sdk-v2/oss"
@@ -128,4 +129,21 @@ func FileUpload(r *http.Request) (string, error) {
 	// 打印上传对象的结果
 	log.Printf("put object result:%#v\n", result)
 	return "https://" + define.BucketName + ".oss-" + define.Region + ".aliyuncs.com" + "/" + objectName, nil
+}
+
+// 解析token信息
+func AnalyzeToken(token string) (*define.UserClaim, error) {
+	uc := new(define.UserClaim)
+	claims, err := jwt.ParseWithClaims(token, uc, func(token *jwt.Token) (interface{}, error) {
+		return []byte(define.JwtKey), nil
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	if !claims.Valid {
+		return nil, errors.New("invalid token")
+	}
+
+	return uc, err
 }
