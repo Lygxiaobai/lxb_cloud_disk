@@ -29,6 +29,7 @@ func NewUserRepositySaveLogic(ctx context.Context, svcCtx *svc.ServiceContext) *
 }
 
 func (l *UserRepositySaveLogic) UserRepositySave(req *types.UserRepositySaveRequest, userIdentity string) (resp *types.UserRepositySaveResponse, err error) {
+	//
 	up := &models.UserRepository{
 		Identity:           helper.UUID(),
 		UserIdentity:       userIdentity,
