@@ -20,6 +20,9 @@ service core-api {
 service core-api {
 	@handler FileUpload
 	post /file/upload (FileUploadRequest) returns (FileUploadResponse)
+
+	@handler UserRepositySave
+	post /user/reposity/save (UserRepositySaveRequest) returns (UserRepositySaveResponse)
 }
 
 type LoginRequest {
@@ -71,4 +74,13 @@ type FileUploadResponse {
 	Ext      string `json:"ext"`
 	Name     string `json:"name"`
 }
+
+type UserRepositySaveRequest {
+	ParentId         int64  `json:"parentId"`
+	ReposityIdentity string `json:"repositoryIdentity"`
+	Ext              string `json:"ext"`
+	Name             string `json:"name"`
+}
+
+type UserRepositySaveResponse {}
 

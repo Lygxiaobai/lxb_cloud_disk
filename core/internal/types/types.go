@@ -52,3 +52,13 @@ type UserRegisterRequest struct {
 
 type UserRegisterResponse struct {
 }
+
+type UserRepositySaveRequest struct {
+	ParentId         int64  `json:"parentId"`
+	ReposityIdentity string `json:"repositoryIdentity"`
+	Ext              string `json:"ext"`
+	Name             string `json:"name"`
+}
+
+type UserRepositySaveResponse struct {
+}
