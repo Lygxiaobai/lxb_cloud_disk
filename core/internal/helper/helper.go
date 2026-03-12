@@ -2,14 +2,21 @@ package helper
 
 import (
 	"cloud_disk/core/internal/define"
+	"context"
 	"crypto/md5"
 	"crypto/tls"
+	"flag"
 	"fmt"
+	"github.com/aliyun/alibabacloud-oss-go-sdk-v2/oss"
+	"github.com/aliyun/alibabacloud-oss-go-sdk-v2/oss/credentials"
 	"github.com/golang-jwt/jwt/v4"
 	"github.com/jordan-wright/email"
 	uuid "github.com/satori/go.uuid"
+	"log"
 	"math/rand"
+	"net/http"
 	"net/smtp"
+	"path"
 	"time"
 )
 
@@ -65,4 +72,60 @@ func RandCode() string {
 // 生成UUID
 func UUID() string {
 	return uuid.NewV4().String()
+}
+
+// 文件上传到阿里云
+func FileUpload(r *http.Request) (string, error) {
+
+	// 获取要上传的文件
+	file, header, err := r.FormFile("file")
+	var objectName = "cloud-disk/" + UUID() + path.Ext(header.Filename)
+
+	// 检查bucket名称是否为空
+	if len(define.BucketName) == 0 {
+		flag.PrintDefaults()
+		log.Fatalf("invalid parameters, bucket name required")
+	}
+
+	// 检查region是否为空
+	if len(define.Region) == 0 {
+		flag.PrintDefaults()
+		log.Fatalf("invalid parameters, region required")
+	}
+
+	// 检查object名称是否为空
+	if len(objectName) == 0 {
+		flag.PrintDefaults()
+		log.Fatalf("invalid parameters, object name required")
+	}
+
+	//读取文件 获取文件字节流
+	//imageBytes, err := os.ReadFile("../images/1.jpg")
+
+	body := file
+
+	// 加载默认配置并设置凭证提供者和区域
+	cfg := oss.LoadDefaultConfig().
+		WithCredentialsProvider(credentials.NewEnvironmentVariableCredentialsProvider()).
+		WithRegion(define.Region)
+
+	// 创建OSS客户端
+	client := oss.NewClient(cfg)
+
+	// 创建上传对象的请求
+	request := &oss.PutObjectRequest{
+		Bucket: oss.Ptr(define.BucketName), // 存储空间名称
+		Key:    oss.Ptr(objectName),        // 对象名称
+		Body:   body,                       // 要上传的字符串内容
+	}
+
+	// 发送上传对象的请求
+	result, err := client.PutObject(context.TODO(), request)
+	if err != nil {
+		log.Fatalf("failed to put object %v", err)
+	}
+
+	// 打印上传对象的结果
+	log.Printf("put object result:%#v\n", result)
+	return "https://" + define.BucketName + ".oss-" + define.Region + ".aliyuncs.com" + "/" + objectName, nil
 }

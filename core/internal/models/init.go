@@ -1,10 +1,10 @@
 package models
 
-import "C"
 import (
+	"log"
+
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/redis/go-redis/v9"
-	"log"
 	"xorm.io/xorm"
 )
 

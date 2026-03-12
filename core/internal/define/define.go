@@ -2,6 +2,7 @@ package define
 
 import "github.com/golang-jwt/jwt/v4"
 
+// 用于生成Token
 type UserClaim struct {
 	Id       int
 	Identity string
@@ -17,3 +18,6 @@ var CodeLen = 6
 
 // 过期时间 s
 var CodeExpireTime = 60
+
+var Region = "cn-hangzhou"
+var BucketName = "lvxiaobai"
