@@ -2,7 +2,7 @@
   "id": "session-1773213495730-q26rsj0",
   "status": "active",
   "createdAt": 1773213495730,
-  "updatedAt": 1773385360336,
+  "updatedAt": 1773389249829,
   "messages": [
     {
       "id": "msg-1773327973121-33",
@@ -115,6 +115,30 @@
       "agent": "orchestrator",
       "source": "orchestrator",
       "timestamp": 1773385360336
+    },
+    {
+      "id": "msg-1773389008069-72",
+      "role": "user",
+      "content": "go-zero写业务 时  new一个对象  传给xorm &这个对象 报一个指针到另一个指针不被允许是啥意思",
+      "source": "orchestrator",
+      "timestamp": 1773389008072,
+      "type": "user_input",
+      "metadata": {
+        "turnId": "turn:1773389008069-rcv1k0w",
+        "requestId": "1773389008064_h57aixkyd"
+      }
+    },
+    {
+      "id": "msg-1773389249828-89",
+      "role": "user",
+      "content": "go-zero写业务 时 new一个对象 传给xorm &这个对象 报一个指针到另一个指针不被允许是啥意思",
+      "source": "orchestrator",
+      "timestamp": 1773389249829,
+      "type": "user_input",
+      "metadata": {
+        "turnId": "turn:1773389249827-c778mka",
+        "requestId": "1773389249825_am4i3uish"
+      }
     }
   ],
   "snapshots": [],

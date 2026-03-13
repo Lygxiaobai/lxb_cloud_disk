@@ -39,11 +39,13 @@ func (l *UserFileListLogic) UserFileList(req *types.UserFileListRequest, userIde
 		page = define.Page
 	}
 	offset := (page - 1) * size
+	l.svcCtx.Engine.ShowSQL(true)
 	//1.联表查询属于UserIdentity用户的所有文件信息 注意要结合父级id查询
 	err = l.svcCtx.Engine.Table("user_repository").Where("user_identity=? AND parent_id =?", userIdentity, req.Id).
 		Select("user_repository.parent_id,user_repository.identity,user_repository.repository_identity,user_repository.name,user_repository.ext,repository_pool.size,repository_pool.path").
 		Join("LEFT", "repository_pool", "user_repository.repository_identity = repository_pool.identity").
 		Limit(size, offset).
+		Where("user_repository.deleted_at IS NULL").
 		Find(&list)
 	if err != nil {
 		return nil, err
