@@ -57,6 +57,11 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 					Handler: UserFileNameUpdateHandler(serverCtx),
 				},
 				{
+					Method:  http.MethodPut,
+					Path:    "/user/folder/create",
+					Handler: UserFolderCreateHandler(serverCtx),
+				},
+				{
 					Method:  http.MethodPost,
 					Path:    "/user/reposity/save",
 					Handler: UserRepositySaveHandler(serverCtx),

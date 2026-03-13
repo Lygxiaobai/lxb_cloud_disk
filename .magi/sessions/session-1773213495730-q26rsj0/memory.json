@@ -2,8 +2,8 @@
   "sessionId": "session-1773213495730-q26rsj0",
   "sessionName": "你是什么模型",
   "created": "2026-03-12T15:06:13.126Z",
-  "lastUpdated": "2026-03-13T03:39:53.835Z",
-  "tokenEstimate": 190,
+  "lastUpdated": "2026-03-13T07:01:48.244Z",
+  "tokenEstimate": 470,
   "primaryIntent": "你是什么模型",
   "userConstraints": [],
   "userMessages": [
@@ -25,6 +25,16 @@
     {
       "content": "你是什么模型",
       "timestamp": "2026-03-13T03:39:53.512Z",
+      "isKeyInstruction": false
+    },
+    {
+      "content": "{\"@timestamp\":\"2026-03-13T14:57:00.502+08:00\",\"caller\":\"handler/loghandler.go:169\",\"content\":\"[HTTP] 500 - PUT /user/folder/create - [::1]:63130 - Apifox/1.0.0 (https://apifox.com)\\nPUT /user/folder/create HTTP/1.1\\r\\nHost: localhost:8888\\r\\nAccept: */*\\r\\nAccept-Encoding: gzip, deflate, br\\r\\nAuthorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6NiwiSWRlbnRpdHkiOiI4NDA5NjQzNi02OWJhLTQwMDMtYjE5MS0xOTY1YjMzYThhYWIiLCJOYW1lIjoiMTIzIn0.0W3KHgatAEuecp1_ELrAuZraoh-cDvGgLHIWCibGkQQ\\r\\nConnection: keep-alive\\r\\nContent-Length: 49\\r\\nContent-Type: application/json\\r\\nUser-Agent: Apifox/1.0.0 (https://apifox.com)\\r\\nUserid: \\u0006\\r\\nUseridentity: 84096436-69ba-4003-b191-1965b33a8aab\\r\\nUsername: 123\\r\\n\\r\\n{\\r\\n    \\\"name\\\": \\\"文件夹\\\",\\r\\n    \\\"parentId\\\": 0\\r\\n}\",\"duration\":\"16.3ms\",\"level\":\"error\",\"span\":\"4bd48abc19f9bba4\",\"trace\":\"b6f64c6568e7e3c3f78e7f9c6f35d333\"}   go-zero报错",
+      "timestamp": "2026-03-13T07:00:57.158Z",
+      "isKeyInstruction": false
+    },
+    {
+      "content": "A",
+      "timestamp": "2026-03-13T07:01:47.943Z",
       "isKeyInstruction": false
     }
   ],

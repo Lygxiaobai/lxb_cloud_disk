@@ -66,10 +66,19 @@ type UserFileListResponse struct {
 
 type UserFileNameUpdateRequest struct {
 	Name     string `json:"name"`
-	Identity string `json:"identity"` //用户存储的唯一凭证
+	Identity string `json:"identity"` //用户文件存储的唯一凭证
 }
 
 type UserFileNameUpdateResponse struct {
+}
+
+type UserFolderCreateRequest struct {
+	Name     string `json:"name"`
+	ParentId int64  `json:"parentId"`
+}
+
+type UserFolderCreateResponse struct {
+	Identity string `json:"identity"`
 }
 
 type UserRegisterRequest struct {
