@@ -3,7 +3,7 @@ package models
 import "time"
 
 type UserRepository struct {
-	Id                 int
+	Id                 int //这个也用于当前用户的层级
 	Identity           string
 	ParentId           int64
 	UserIdentity       string
