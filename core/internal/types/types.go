@@ -45,7 +45,7 @@ type UserDetailResponse struct {
 
 type UserFile struct {
 	Id                 int64  `json:"id"`
-	Identity           string `json:"identity"` //用户存储库的唯一凭证
+	Identity           string `json:"identity"`
 	RepositoryIdentity string `json:"repository_identity"`
 	Name               string `json:"name"`
 	Ext                string `json:"ext"`
@@ -62,6 +62,14 @@ type UserFileListRequest struct {
 type UserFileListResponse struct {
 	List  []*UserFile `json:"list"`
 	Count int64       `json:"count"` //list总数量
+}
+
+type UserFileNameUpdateRequest struct {
+	Name     string `json:"name"`
+	Identity string `json:"identity"` //用户存储的唯一凭证
+}
+
+type UserFileNameUpdateResponse struct {
 }
 
 type UserRegisterRequest struct {

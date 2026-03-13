@@ -28,6 +28,10 @@ service core-api {
 	//用户文件列表
 	@handler UserFileList
 	get /user/file/list (UserFileListRequest) returns (UserFileListResponse)
+
+	//用户文件名修改
+	@handler UserFileNameUpdate
+	put /user/file/name/update (UserFileNameUpdateRequest) returns (UserFileNameUpdateResponse)
 }
 
 type LoginRequest {
@@ -109,4 +113,11 @@ type UserFile {
 	Path               string `json:"path"`
 	Size               int64  `json:"size"`
 }
+
+type UserFileNameUpdateRequest {
+	Name     string `json:"name"`
+	Identity string `json:"identity"` //用户文件存储的唯一凭证
+}
+
+type UserFileNameUpdateResponse {}
 
