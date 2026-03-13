@@ -21,8 +21,13 @@ service core-api {
 	@handler FileUpload
 	post /file/upload (FileUploadRequest) returns (FileUploadResponse)
 
+	//用户关联存储
 	@handler UserRepositySave
 	post /user/reposity/save (UserRepositySaveRequest) returns (UserRepositySaveResponse)
+
+	//用户文件列表
+	@handler UserFileList
+	get /user/file/list (UserFileListRequest) returns (UserFileListResponse)
 }
 
 type LoginRequest {
@@ -83,4 +88,25 @@ type UserRepositySaveRequest {
 }
 
 type UserRepositySaveResponse {}
+
+type UserFileListRequest {
+	Id   int64 `json:"id,optional"` //id? 父级id
+	Page int   `json:"page,optional"` //第几页
+	Size int   `json:"size,optional"` //每页文件数量
+}
+
+type UserFileListResponse {
+	List  []*UserFile `json:"list"`
+	Count int64       `json:"count"` //list总数量
+}
+
+type UserFile {
+	Id                 int64  `json:"id"`
+	Identity           string `json:"identity"`
+	RepositoryIdentity string `json:"repository_identity"`
+	Name               string `json:"name"`
+	Ext                string `json:"ext"`
+	Path               string `json:"path"`
+	Size               int64  `json:"size"`
+}
 

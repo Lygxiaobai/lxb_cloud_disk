@@ -14,3 +14,7 @@ type UserRepository struct {
 	UpdatedAt          time.Time `xorm:"updated"`
 	DeletedAt          time.Time `xorm:"deleted"`
 }
+
+func (u UserRepository) TableName() string {
+	return "user_repository"
+}

@@ -47,6 +47,11 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 					Handler: FileUploadHandler(serverCtx),
 				},
 				{
+					Method:  http.MethodGet,
+					Path:    "/user/file/list",
+					Handler: UserFileListHandler(serverCtx),
+				},
+				{
 					Method:  http.MethodPost,
 					Path:    "/user/reposity/save",
 					Handler: UserRepositySaveHandler(serverCtx),

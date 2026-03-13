@@ -21,3 +21,7 @@ var CodeExpireTime = 60
 
 var Region = "cn-hangzhou"
 var BucketName = "lvxiaobai"
+
+// 分页参数
+var Page = 1
+var PageSize = 10

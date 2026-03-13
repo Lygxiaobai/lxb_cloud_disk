@@ -43,6 +43,27 @@ type UserDetailResponse struct {
 	Email string `json:"email"`
 }
 
+type UserFile struct {
+	Id                 int64  `json:"id"`
+	Identity           string `json:"identity"` //用户存储库的唯一凭证
+	RepositoryIdentity string `json:"repository_identity"`
+	Name               string `json:"name"`
+	Ext                string `json:"ext"`
+	Path               string `json:"path"`
+	Size               int64  `json:"size"`
+}
+
+type UserFileListRequest struct {
+	Id   int64 `json:"id,optional"`   //id? 父级id
+	Page int   `json:"page,optional"` //第几页
+	Size int   `json:"size,optional"` //每页文件数量
+}
+
+type UserFileListResponse struct {
+	List  []*UserFile `json:"list"`
+	Count int64       `json:"count"` //list总数量
+}
+
 type UserRegisterRequest struct {
 	Name     string `json:"name"`
 	Password string `json:"password"`

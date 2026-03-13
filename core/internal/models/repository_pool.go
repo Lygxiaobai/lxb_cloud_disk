@@ -16,3 +16,7 @@ type RepositoryPool struct {
 	UpdatedAt time.Time `xorm:"updated"`
 	DeletedAt time.Time `xorm:"deleted"`
 }
+
+func (RepositoryPool) TableName() string {
+	return "repository_pool"
+}

@@ -2,7 +2,81 @@
   "id": "session-1773213495730-q26rsj0",
   "status": "active",
   "createdAt": 1773213495730,
-  "updatedAt": 1773213495730,
-  "messages": [],
-  "snapshots": []
+  "updatedAt": 1773373210236,
+  "messages": [
+    {
+      "id": "msg-1773327973121-33",
+      "role": "user",
+      "content": "你是什么模型",
+      "source": "orchestrator",
+      "timestamp": 1773327973124,
+      "type": "user_input",
+      "metadata": {
+        "turnId": "turn:1773327973120-1o5y57y",
+        "requestId": "1773327973118_2ctlyq0qv"
+      }
+    },
+    {
+      "id": "msg-1773329405965-35",
+      "role": "user",
+      "content": "你是什么模型",
+      "source": "orchestrator",
+      "timestamp": 1773329405967,
+      "type": "user_input",
+      "metadata": {
+        "turnId": "turn:1773329405965-hc4hg3e",
+        "requestId": "1773329405961_px2rxc7p3"
+      }
+    },
+    {
+      "id": "msg-1773329435383-yj11",
+      "role": "assistant",
+      "content": "已取消操作。需要我做什么？",
+      "agent": "orchestrator",
+      "source": "orchestrator",
+      "timestamp": 1773329435383
+    },
+    {
+      "id": "msg-1773329444138-62",
+      "role": "user",
+      "content": "你是什么模型",
+      "source": "orchestrator",
+      "timestamp": 1773329444141,
+      "type": "user_input",
+      "metadata": {
+        "turnId": "turn:1773329444138-lolb7in",
+        "requestId": "1773329444136_tlzbq65sg"
+      }
+    },
+    {
+      "id": "msg-1773329524649-8oz2",
+      "role": "assistant",
+      "content": "我是多模型协作的编程助手（Magi），可按任务分派给不同专长的 Worker。需要我协助什么？",
+      "agent": "orchestrator",
+      "source": "orchestrator",
+      "timestamp": 1773329524649
+    },
+    {
+      "id": "msg-1773373193491-33",
+      "role": "user",
+      "content": "你是什么模型",
+      "source": "orchestrator",
+      "timestamp": 1773373193495,
+      "type": "user_input",
+      "metadata": {
+        "turnId": "turn:1773373193491-zwgg5d0",
+        "requestId": "1773373193488_94ifcw411"
+      }
+    },
+    {
+      "id": "msg-1773373210236-kikg",
+      "role": "assistant",
+      "content": "工具执行已完成，但模型未返回最终文本总结。请查看上方工具执行结果。",
+      "agent": "orchestrator",
+      "source": "orchestrator",
+      "timestamp": 1773373210236
+    }
+  ],
+  "snapshots": [],
+  "name": "你是什么模型"
 }
