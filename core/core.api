@@ -164,3 +164,36 @@ type UserFolderCreateResponse {
 	Identity string `json:"identity"`
 }
 
+type UserFileDeleteRequest {
+	Identity string `json:"identity"`
+}
+
+type UserFileDeleteResponse {}
+
+type ShareBasicCreateRequest {
+	UserRepositoryIdentity string `json:"user_repository_identity"`
+	ExpiredTime            int    `json:"expired_time"`
+}
+
+type ShareBasicCreateResponse {
+	Identity string `json:"identity"`
+}
+type ShareBasicDetailRequest {
+	Identity string `json:"identity"`
+}
+
+type ShareBasicDetailResponse {
+	RepositoryIdentity string `json:"repository_identity"`
+	Name               string `json:"name"`
+	Ext                string `json:"ext"`
+	Size               int64  `json:"size"`
+	Path               string `json:"path"`
+}
+
+
+type UserFileMoveRequest {
+	ParentIdentity string `json:"parent_identity"`
+	Identity       string `json:"identity"`
+}
+
+type UserFileMoveResponse {}
