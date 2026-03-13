@@ -34,6 +34,15 @@ type MailCodeResponse struct {
 	Code string `json:"code"`
 }
 
+type ShareBasicCreateRequest struct {
+	UserRepositoryIdentity string `json:"user_repository_identity"`
+	ExpireTime             int    `json:"expire_time"`
+}
+
+type ShareBasicCreateResponse struct {
+	Identity string `json:"identity"`
+}
+
 type UserDetailRequest struct {
 	Identity string `json:"identity"`
 }
@@ -53,6 +62,13 @@ type UserFile struct {
 	Size               int64  `json:"size"`
 }
 
+type UserFileDeleteRequest struct {
+	Identity string `json:"identity"`
+}
+
+type UserFileDeleteResponse struct {
+}
+
 type UserFileListRequest struct {
 	Id   int64 `json:"id,optional"`   //id? 父级id
 	Page int   `json:"page,optional"` //第几页
@@ -62,6 +78,14 @@ type UserFileListRequest struct {
 type UserFileListResponse struct {
 	List  []*UserFile `json:"list"`
 	Count int64       `json:"count"` //list总数量
+}
+
+type UserFileMoveRequest struct {
+	Identity       string `json:"identity"`
+	ParnetIdentity string `json:"parent_identity"`
+}
+
+type UserFileMoveResponse struct {
 }
 
 type UserFileNameUpdateRequest struct {
@@ -74,7 +98,7 @@ type UserFileNameUpdateResponse struct {
 
 type UserFolderCreateRequest struct {
 	Name     string `json:"name"`
-	ParentId int64  `json:"parentId"`
+	ParentId int64  `json:"parent_id"`
 }
 
 type UserFolderCreateResponse struct {
@@ -93,7 +117,7 @@ type UserRegisterResponse struct {
 
 type UserRepositySaveRequest struct {
 	ParentId         int64  `json:"parentId"`
-	ReposityIdentity string `json:"repositoryIdentity"`
+	ReposityIdentity string `json:"repository_identity"`
 	Ext              string `json:"ext"`
 	Name             string `json:"name"`
 }

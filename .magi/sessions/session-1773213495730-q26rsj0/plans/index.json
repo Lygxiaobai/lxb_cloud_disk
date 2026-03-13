@@ -1,5 +1,29 @@
 [
   {
+    "planId": "plan-1773389249831-phbzzm4",
+    "sessionId": "session-1773213495730-q26rsj0",
+    "missionId": "turn:1773389249827-c778mka",
+    "turnId": "turn:1773389249827-c778mka",
+    "version": 1,
+    "status": "failed",
+    "mode": "standard",
+    "summary": "go-zero写业务 时 new一个对象 传给xorm &这个对象 报一个指针到另一个指针不被允许是啥意思",
+    "createdAt": 1773389249831,
+    "updatedAt": 1773389362791
+  },
+  {
+    "planId": "plan-1773389008075-7tueedy",
+    "sessionId": "session-1773213495730-q26rsj0",
+    "missionId": "turn:1773389008069-rcv1k0w",
+    "turnId": "turn:1773389008069-rcv1k0w",
+    "version": 1,
+    "status": "failed",
+    "mode": "standard",
+    "summary": "go-zero写业务 时  new一个对象  传给xorm &这个对象 报一个指针到另一个指针不被允许是啥意思",
+    "createdAt": 1773389008075,
+    "updatedAt": 1773389055221
+  },
+  {
     "planId": "plan-1773385307944-re6swq2",
     "sessionId": "session-1773213495730-q26rsj0",
     "missionId": "turn:1773385307939-8sikahb",

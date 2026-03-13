@@ -25,3 +25,9 @@ var BucketName = "lvxiaobai"
 // 分页参数
 var Page = 1
 var PageSize = 10
+
+// 分享文件过期时间 s
+var FileExpireTime = 60 * 60 * 24
+
+// 点击次数
+var DefaultClickNum = 0
