@@ -49,7 +49,7 @@ func (l *ShareBasicCreateLogic) ShareBasicCreate(req *types.ShareBasicCreateRequ
 		UserIdentity:           userIdentity,
 		UserRepositoryIdentity: upData.Identity,
 		RepositoryIdentity:     upData.RepositoryIdentity,
-		ExpiredTime:            req.ExpireTime,
+		ExpiredTime:            req.ExpiredTime,
 		ClickNum:               define.DefaultClickNum,
 	}
 	_, err = l.svcCtx.Engine.Insert(&sb)

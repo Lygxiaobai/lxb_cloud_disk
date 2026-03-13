@@ -50,6 +50,24 @@ service core-api {
 	post /share/basic/create (ShareBasicCreateRequest) returns (ShareBasicCreateResponse)
 }
 
+//获取分享资源详细
+service core-api {
+	@handler ShareFileDetail
+	get /share/file/detail (ShareFileDetailRequest) returns (ShareFileDetailResponse)
+}
+
+type ShareFileDetailRequest {
+	Identity string `json:"identity"`
+}
+
+type ShareFileDetailResponse {
+	RepositoryIdentity string `json:"repository_identity"`
+	Name               string `json:"name"`
+	Ext                string `json:"ext"`
+	Size               int64  `json:"size"`
+	Path               string `json:"path"`
+}
+
 type LoginRequest {
 	Name     string `json:"name"`
 	Password string `json:"password"`
@@ -161,7 +179,7 @@ type UserFileMoveResponse {}
 
 type ShareBasicCreateRequest {
 	UserRepositoryIdentity string `json:"user_repository_identity"`
-	ExpiredTime             int    `json:"expired_time"`
+	ExpiredTime            int    `json:"expired_time"`
 }
 
 type ShareBasicCreateResponse {

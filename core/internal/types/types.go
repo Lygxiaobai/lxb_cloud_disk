@@ -36,11 +36,23 @@ type MailCodeResponse struct {
 
 type ShareBasicCreateRequest struct {
 	UserRepositoryIdentity string `json:"user_repository_identity"`
-	ExpireTime             int    `json:"expire_time"`
+	ExpiredTime            int    `json:"expired_time"`
 }
 
 type ShareBasicCreateResponse struct {
 	Identity string `json:"identity"`
+}
+
+type ShareFileDetailRequest struct {
+	Identity string `json:"identity"`
+}
+
+type ShareFileDetailResponse struct {
+	RepositoryIdentity string `json:"repository_identity"`
+	Name               string `json:"name"`
+	Ext                string `json:"ext"`
+	Size               int64  `json:"size"`
+	Path               string `json:"path"`
 }
 
 type UserDetailRequest struct {
