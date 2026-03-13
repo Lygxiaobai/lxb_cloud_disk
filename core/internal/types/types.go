@@ -23,7 +23,8 @@ type LoginRequest struct {
 }
 
 type LoginResponse struct {
-	Token string `json:"token"`
+	Token        string `json:"token"`
+	RefreshToken string `json:"refresh_token"`
 }
 
 type MailCodeRequest struct {
@@ -32,6 +33,14 @@ type MailCodeRequest struct {
 
 type MailCodeResponse struct {
 	Code string `json:"code"`
+}
+
+type RefreshTokenRequest struct {
+}
+
+type RefreshTokenResponse struct {
+	Token        string `json:"token"`
+	RefreshToken string `json:"refresh_token"`
 }
 
 type ShareBasicCreateRequest struct {

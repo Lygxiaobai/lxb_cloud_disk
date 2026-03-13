@@ -4,7 +4,7 @@ import "github.com/golang-jwt/jwt/v4"
 
 // 用于生成Token
 type UserClaim struct {
-	Id       int
+	ID       int
 	Identity string
 	Name     string
 	jwt.StandardClaims
@@ -31,3 +31,9 @@ var FileExpireTime = 60 * 60 * 24
 
 // 点击次数
 var DefaultClickNum = 0
+
+// Token过期时间
+var TokenExpireTime = 3600
+
+// RefreshToken过期时间
+var RefreshTokenExpireTime = 7200

@@ -20,6 +20,11 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 				Handler: MailCodeSendRegisterHandler(serverCtx),
 			},
 			{
+				Method:  http.MethodPut,
+				Path:    "/refersh/token",
+				Handler: RefreshTokenHandler(serverCtx),
+			},
+			{
 				Method:  http.MethodGet,
 				Path:    "/user/detail",
 				Handler: UserDetailHandler(serverCtx),

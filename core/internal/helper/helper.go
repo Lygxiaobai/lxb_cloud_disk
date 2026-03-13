@@ -27,11 +27,14 @@ func MD5(str string) string {
 }
 
 // Token生成
-func GenerateToken(id int, identity string, name string) (string, error) {
+func GenerateToken(id int, identity string, name string, expireTime int) (string, error) {
 	uc := define.UserClaim{
-		Id:       id,
+		ID:       id,
 		Identity: identity,
 		Name:     name,
+		StandardClaims: jwt.StandardClaims{
+			ExpiresAt: time.Now().Add(time.Second * time.Duration(expireTime)).Unix(),
+		},
 	}
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, uc)
 	tokenString, err := token.SignedString([]byte(define.JwtKey))
