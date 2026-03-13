@@ -120,7 +120,7 @@ type FileUploadResponse {
 
 type UserRepositySaveRequest {
 	ParentId         int64  `json:"parentId"`
-	ReposityIdentity string `json:"repository_identity"`
+	ReposityIdentity string `json:"repositoryIdentity"`
 	Ext              string `json:"ext"`
 	Name             string `json:"name"`
 }
@@ -157,32 +157,10 @@ type UserFileNameUpdateResponse {}
 
 type UserFolderCreateRequest {
 	Name     string `json:"name"`
-	ParentId int64  `json:"parent_id"`
+	ParentId int64  `json:"parentId"`
 }
 
 type UserFolderCreateResponse {
-	Identity string `json:"identity"`
-}
-
-type UserFileDeleteRequest {
-	Identity string `json:"identity"`
-}
-
-type UserFileDeleteResponse {}
-
-type UserFileMoveRequest {
-	Identity       string `json:"identity"`
-	ParnetIdentity string `json:"parent_identity"`
-}
-
-type UserFileMoveResponse {}
-
-type ShareBasicCreateRequest {
-	UserRepositoryIdentity string `json:"user_repository_identity"`
-	ExpiredTime            int    `json:"expired_time"`
-}
-
-type ShareBasicCreateResponse {
 	Identity string `json:"identity"`
 }
 
