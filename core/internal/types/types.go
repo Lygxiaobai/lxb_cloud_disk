@@ -43,6 +43,18 @@ type ShareBasicCreateResponse struct {
 	Identity string `json:"identity"`
 }
 
+type ShareBasicDetailRequest struct {
+	Identity string `json:"identity"`
+}
+
+type ShareBasicDetailResponse struct {
+	RepositoryIdentity string `json:"repository_identity"`
+	Name               string `json:"name"`
+	Ext                string `json:"ext"`
+	Size               int64  `json:"size"`
+	Path               string `json:"path"`
+}
+
 type ShareFileDetailRequest struct {
 	Identity string `json:"identity"`
 }
@@ -53,6 +65,15 @@ type ShareFileDetailResponse struct {
 	Ext                string `json:"ext"`
 	Size               int64  `json:"size"`
 	Path               string `json:"path"`
+}
+
+type ShareFileSaveRequest struct {
+	RepositoryIdentity string `json:"repository_identity"`
+	ParentId           int64  `json:"parent_id"`
+}
+
+type ShareFileSaveResponse struct {
+	Identity string `json:"identity"`
 }
 
 type UserDetailRequest struct {
@@ -93,8 +114,8 @@ type UserFileListResponse struct {
 }
 
 type UserFileMoveRequest struct {
+	ParentIdentity string `json:"parent_identity"`
 	Identity       string `json:"identity"`
-	ParnetIdentity string `json:"parent_identity"`
 }
 
 type UserFileMoveResponse struct {
@@ -110,7 +131,7 @@ type UserFileNameUpdateResponse struct {
 
 type UserFolderCreateRequest struct {
 	Name     string `json:"name"`
-	ParentId int64  `json:"parent_id"`
+	ParentId int64  `json:"parentId"`
 }
 
 type UserFolderCreateResponse struct {
@@ -129,7 +150,7 @@ type UserRegisterResponse struct {
 
 type UserRepositySaveRequest struct {
 	ParentId         int64  `json:"parentId"`
-	ReposityIdentity string `json:"repository_identity"`
+	ReposityIdentity string `json:"repositoryIdentity"`
 	Ext              string `json:"ext"`
 	Name             string `json:"name"`
 }

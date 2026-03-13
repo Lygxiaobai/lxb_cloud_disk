@@ -32,7 +32,7 @@ func (l *UserFileMoveLogic) UserFileMove(req *types.UserFileMoveRequest, userIde
 	//将当前文件的parentId改到要移动的文件夹的id下即可
 	//获取要移动文件夹的id
 	var parentFolder = models.UserRepository{}
-	has, err := l.svcCtx.Engine.Where("identity =?", req.ParnetIdentity).Get(&parentFolder)
+	has, err := l.svcCtx.Engine.Where("identity =?", req.ParentIdentity).Get(&parentFolder)
 	if err != nil {
 		return nil, err
 

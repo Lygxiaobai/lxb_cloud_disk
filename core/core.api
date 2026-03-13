@@ -48,6 +48,19 @@ service core-api {
 	//创建分享记录
 	@handler ShareBasicCreate
 	post /share/basic/create (ShareBasicCreateRequest) returns (ShareBasicCreateResponse)
+
+	//用户保存分享资源
+	@handler ShareFileSave
+	post /share/file/save (ShareFileSaveRequest) returns (ShareFileSaveResponse)
+}
+
+type ShareFileSaveRequest {
+	RepositoryIdentity string `json:"repository_identity"`
+	ParentId           int64  `json:"parent_id"`
+}
+
+type ShareFileSaveResponse {
+	Identity string `json:"identity"`
 }
 
 //获取分享资源详细
@@ -178,6 +191,7 @@ type ShareBasicCreateRequest {
 type ShareBasicCreateResponse {
 	Identity string `json:"identity"`
 }
+
 type ShareBasicDetailRequest {
 	Identity string `json:"identity"`
 }
@@ -190,10 +204,10 @@ type ShareBasicDetailResponse {
 	Path               string `json:"path"`
 }
 
-
 type UserFileMoveRequest {
 	ParentIdentity string `json:"parent_identity"`
 	Identity       string `json:"identity"`
 }
 
 type UserFileMoveResponse {}
+
